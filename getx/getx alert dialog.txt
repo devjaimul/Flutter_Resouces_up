@@ -1,0 +1,6 @@
+ Get.defaultDialog(
+                    title: 'Alert!',
+                    content: Text('Do you want to rest?'),
+                    confirm: Text('Yes'),
+                    cancel: Text('No'),
+                  );

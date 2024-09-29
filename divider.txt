@@ -1,0 +1,25 @@
+  Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 100,
+            ),
+            Divider(
+              color: Colors.black,
+              thickness: .5,
+            ),
+            SizedBox(
+              height: 125,
+              child: VerticalDivider(
+                color: Colors.black,
+                thickness: .5,
+              ),
+            ),
+            Divider(
+              color: Colors.black,
+              thickness: .5,
+            ),
+
+           
+          ],
+        ),

@@ -1,0 +1,51 @@
+  @override
+  Widget build(BuildContext context) {
+
+    final _key=GlobalKey<FormState>();
+
+
+//over ride ar age oi variable ta nite hbe
+
+ body: Padding(
+      padding: EdgeInsets.all(10),
+      child: Form(
+        key: _key,
+        child: Column(
+          children: [
+            SizedBox(height: 15,),
+            
+            TextFormField(
+              decoration: InputDecoration(border: OutlineInputBorder(),hintText: "Enter your Email",label: Text("Enter your Email")),
+              validator:(value) {
+                if(value!.isEmpty){
+                  return "Enter your Email";
+                }
+                return null;
+              },
+            ),
+
+
+            SizedBox(height: 15,),
+            TextFormField(
+              decoration: InputDecoration(border: OutlineInputBorder(),hintText: "Enter your password", label: Text("Enter your password")),
+              validator:(value) {
+                if(value!.isEmpty){
+                  return "Enter your password";
+                } else if (value.length<8){
+                  return "password invalid";
+                }
+
+                return null;
+              },
+            ),
+
+            SizedBox(height: 15,),
+            ElevatedButton(onPressed: ()
+
+    { if(_key.currentState!.validate()){print("login success");}; },
+
+      child:Text("sign in"), )
+          ],
+        ),
+      ),
+    )

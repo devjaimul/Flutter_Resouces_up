@@ -1,0 +1,12 @@
+
+// void ar jaygay string ,int,double sb e use kora jbe but return use korte hbe
+  Future<void> akik()  async{
+
+   await Future.delayed(Duration(seconds: 5));
+   print("delayed");
+
+   //return 9;
+   
+  }
+
+//kono jinis k delay korte use kora hy ,,jmn ak page theke onno page 

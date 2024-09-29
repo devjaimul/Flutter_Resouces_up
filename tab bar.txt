@@ -1,0 +1,53 @@
+DefaultTabController(
+
+      length: 4,
+      initialIndex: 1, //app start hole kon tab age show korbe sei inedx
+      child: Scaffold(
+      appBar: AppBar(
+
+        title: const Text("Whatsapp"),
+
+
+        actions: const [Icon(Icons.search_sharp),
+        SizedBox(width: 10,),
+          Icon(Icons.more_horiz),
+          SizedBox(width: 10,),
+
+        ],
+
+        bottom: const TabBar(
+
+               labelColor: Colors.white, //tabs label gular color
+              unselectedLabelColor: Colors.white.withOpacity(0.5), ////vitore j text ase oita unselected obostay kivabe thakbe
+              indicatorColor: Colors.white,   //niche j sada dag thake oitar color
+              indicatorSize: TabBarIndicatorSize.tab,   //indicator label /tab koto tuk boro hbe
+              dividerColor: Colors.grey, //indicator ar niche akta dag /divider add kore
+              isScrollable: true, //onk gula tab thakle pase scroll kora jay
+tabs: [
+
+          Tab(
+            child: Icon(Icons.camera_alt),
+
+          ),
+          Tab(
+            child: Text("Chats"),
+          ),
+          Tab(
+            child: Text("Status"),
+          ),
+          Tab(
+            child: Text("Calls"),
+          ),
+
+
+
+        ]),
+      ),
+
+        body: const TabBarView(children: [
+          Text("Camera"),
+          Text("Chats"),
+          Text("Status"),
+          Text("Calls"),
+        ]),
+    ),);

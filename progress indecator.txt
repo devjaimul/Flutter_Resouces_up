@@ -1,0 +1,16 @@
+   CircularProgressIndicator(
+              backgroundColor: Colors.grey,
+              color: Colors.blueAccent,
+              strokeWidth: 5,
+             // value: 0.6,
+
+
+            ),
+            SizedBox(height: 80,),
+
+            LinearProgressIndicator(
+              color: Colors.green,
+              backgroundColor: Colors.grey,
+              minHeight: 5,
+              borderRadius: BorderRadius.circular(25),
+            ),

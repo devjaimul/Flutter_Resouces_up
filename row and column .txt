@@ -1,0 +1,76 @@
+
+        body:  SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+               mainAxisSize: MainAxisSize.max, //koto tuk space nibe seta depend kore max hole full r min hole joto tuku lagbe tai
+            children:  [
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("first data"),
+                  Text("second data"),
+                  Text("third data"),
+                ],
+              ),
+
+              /*  Center(), //children ar moddhe j kono jaygay dilei center kaj kore
+             // Align(alignment: Alignment.center), // j kono jaygay dilei kaj kore
+
+
+               */
+              Text("first data"),
+              Text("second data"),
+              Text("third data"),
+
+            //Align(alignment: Alignment.center,),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.green,
+                child: Center(child: Text("container 1")),
+                margin: EdgeInsets.only(top: 10),
+              ),
+
+
+            /*  SizedBox(
+                height: 100,
+               // width: 100,
+              ),  // margin ar poriborte bosano jay
+
+
+             */
+
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.teal,
+                child: Center(child: Text("container 2")),
+                margin: EdgeInsets.only(top: 10),
+              ),
+
+
+
+            /*  SizedBox(
+                height: 100,
+                // width: 100,
+              ),
+              */
+
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.greenAccent,
+                child: Center(child: Text("container 3",style: TextStyle(color: Colors.black54),)),
+                margin: EdgeInsets.only(top: 10),
+              ),
+
+
+
+
+            ],
+          ),
+        ),

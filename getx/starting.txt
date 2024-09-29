@@ -1,0 +1,77 @@
+1.pub dev theke pubsyaml a depedemcis add korte hbe
+2. Material app ar jaygay GetMaterialApp use korte hbe
+
+
+Widget build(BuildContext context) {
+    //getx ar sb kisu use korar jonno GetMaterial diye wrap korte hbe,
+    return const GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+    );
+  }
+
+
+
+3. akta controller page create korte hbe jkhne sb variable ba funsction thakbe
+
+import 'package:get/get.dart';
+
+class CounterController extends GetxController {
+  //2 vabei lekha jay ,,
+  // int,double,bool ,list sb use korar age rxint lekha lagbe
+
+
+  //j value k change korte chai seta
+  //var counter=0.obs;
+  RxInt counter = RxInt(0);
+
+
+  //increment function
+  increment() {
+    counter++;
+    update();
+  }
+
+
+  //decrement function
+  decrement() => counter--;
+
+}
+
+
+
+
+4. arpor onno akta page a obj/instance create korte hbe ai pager ar
+//scaffold ar upore
+final controller = Get.put(CounterController());   //put ar moddhe onno page a create kora class ar nam
+
+
+
+
+5.j value ta k change korte chai seta k obx diye wrap korte hbe
+
+
+            Obx(() {
+              return Text(
+                controller.counter.value.toString(),
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold),
+              );
+            }),
+
+
+
+6. function use kora
+
+ IconButton(
+                  onPressed: () {
+                    controller.decrement();
+                  },
+                  icon: const Icon(
+                    Icons.remove,
+                    color: Colors.white,
+                  ),
+                  style: IconButton.styleFrom(backgroundColor: Colors.red),
+                ),

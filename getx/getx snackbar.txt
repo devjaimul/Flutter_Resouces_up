@@ -1,0 +1,6 @@
+  Get.snackbar('Complete', 'You just Clear Everything',
+                     //   backgroundColor: Colors.pink,
+                  //  colorText: Colors.blue,
+                      snackPosition: SnackPosition.BOTTOM,
+                      duration: const Duration(seconds: 2)
+                    );

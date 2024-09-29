@@ -1,0 +1,50 @@
+// actions ar modddhe use korcilam
+
+  
+PopupMenuButton(itemBuilder: (context) => [
+           const PopupMenuItem(
+             value: 1,
+               child: Text("New Group"),
+
+           ),
+
+           const PopupMenuItem(
+             value: 2,
+             child: Text("Setting"),
+
+           ),
+
+          const PopupMenuItem(
+            value: 3,
+             child: Text("Log Out"),
+
+           ),
+         ],
+ 
+        ),
+
+//exp 2
+
+
+actions: [
+         IconButton(onPressed: (){}, icon: Icon(Icons.search,color: Colors.white,)),
+          PopupMenuButton(
+
+            iconColor: Colors.white,
+
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                value: 1,
+                child: Text("New Group"),
+              ),
+              const PopupMenuItem(
+                value: 2,
+                child: Text("Setting"),
+              ),
+              const PopupMenuItem(
+                value: 3,
+                child: Text("Log Out"),
+              ),
+            ],
+          ),
+        ],

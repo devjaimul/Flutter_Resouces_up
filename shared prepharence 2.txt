@@ -1,0 +1,334 @@
+// main.dart
+
+
+import 'package:flutter/material.dart';
+import 'package:untitled1/login_screen.dart';
+import 'package:untitled1/splash_screen.dart';
+
+
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+       debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    );
+  }
+}
+
+
+//splash screen
+
+
+import 'dart:async';
+
+
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled1/home_screen.dart';
+import 'package:untitled1/login_screen.dart';
+
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    isLogin();
+
+  }
+
+  void isLogin() async{
+    SharedPreferences sp=await SharedPreferences.getInstance();
+    bool isLogin=sp.getBool('isLogin') ?? false ;
+
+    if(isLogin){
+      Timer(Duration(seconds: 5), () {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>HomeScreen()));
+      });
+    }
+    else{
+      Timer(Duration(seconds: 5), () {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>LoginScreen()));
+      });
+    }
+
+  }
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      body: Ink.image(
+        // height: double.infinity,
+        //fit: BoxFit.fitHeight,
+        image: NetworkImage("https://blog.eduonix.com/wp-content/uploads/2015/02/404-Error.jpg"),      ),
+    );
+  }
+}
+
+
+
+//login screen
+
+
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled1/home_screen.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+  final emailController = TextEditingController();
+  final numberController =TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text("Login")),
+        automaticallyImplyLeading: false,
+
+      ),
+
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+
+          Padding(
+            padding:const EdgeInsets.symmetric(horizontal: 30), child: TextFormField(
+
+            controller: emailController,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              label: const Text("Email"),
+              prefixIcon: const Icon(Icons.email_rounded),
+              fillColor: const Color(0xffF8F9FA),
+              filled: true,
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Color(0xffE4E7EB)),
+                borderRadius: BorderRadius.circular(10),),
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Color(0xffE4E7EB)),
+                borderRadius: BorderRadius.circular(15),),
+            ),),
+          ),
+          const SizedBox(height: 10,),
+
+
+          Padding(
+            padding: const EdgeInsets.only(left: 30,right: 30), child: TextFormField(
+
+            controller: numberController,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              label: const Text("Number"),
+
+
+
+              prefixIcon: const Icon(Icons.phone),
+
+
+              fillColor: const Color(0xffF8F9FA),
+              filled: true,
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Color(0xffE4E7EB)),
+                borderRadius: BorderRadius.circular(10),),
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Color(0xffE4E7EB)),
+                borderRadius: BorderRadius.circular(15),),
+            ),),
+          ),
+
+          const SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.only(left: 30,right: 30),
+            child: TextFormField(
+
+              controller: passwordController,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              label: const Text("Password"),
+
+
+
+              prefixIcon: const Icon(Icons.lock),
+              suffixIcon: Icon(Icons.visibility_off),
+
+              fillColor: const Color(0xffF8F9FA),
+              filled: true,
+              focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Color(0xffE4E7EB)),
+                borderRadius: BorderRadius.circular(10),),
+              enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: Color(0xffE4E7EB)),
+                borderRadius: BorderRadius.circular(15),),
+            ),),
+          ),
+
+
+          Padding(
+
+            padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 40),
+
+
+            child:InkWell (
+              onTap: () async{
+
+
+                SharedPreferences sp= await SharedPreferences.getInstance();
+
+                sp.setString('email', emailController.text.toString());
+                sp.setString('number', numberController.text.toString());
+                sp.setBool('isLogin',true);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+
+
+
+              },
+
+              child: Container(
+                height: 40,
+
+                child: Center(child: Text("Login",style: TextStyle(fontSize: 20,color: Colors.white),)),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(10),
+
+                ),
+              ),
+            )
+          )
+
+
+        ],
+      ),
+    );
+  }
+}
+
+
+
+//home screen
+
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:untitled1/login_screen.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  String email='', number='';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  loadData() async{
+    SharedPreferences sp =await SharedPreferences.getInstance();
+
+    email=sp.getString('email') ?? '';
+    number=sp.getString('number') ?? '';
+
+    setState(() {
+
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Center(child: Text("Home")),
+          automaticallyImplyLeading: false,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Email'),
+                Text(email.toString()),
+              ],
+            ),
+
+            SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Number'),
+                Text(number.toString()),
+              ],
+            ),
+            SizedBox(height: 40,),
+
+            InkWell (
+              onTap: () async{
+
+
+                SharedPreferences sp= await SharedPreferences.getInstance();
+
+                sp.clear();
+
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(),));
+
+
+
+              },
+
+              child: Container(
+                height: 40,
+
+                child: Center(child: Text("Log Out",style: TextStyle(fontSize: 20,color: Colors.white),)),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(10),
+
+                ),
+              ),
+            )
+          ],
+        ),
+
+      ),
+    );
+  }
+}

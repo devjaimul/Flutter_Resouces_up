@@ -1,0 +1,35 @@
+ RichText(text:
+
+              TextSpan(text: "Ashraful",
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 30),
+
+                children: [
+                  TextSpan(text: " Rehan",style: TextStyle( color: Colors.deepOrange, fontSize: 25)),
+                  TextSpan(text: " Rehan",style: TextStyle( color: Colors.deepOrange, fontSize: 25))
+                ]
+              )
+
+
+              ),
+
+
+
+//2nd
+
+
+  Center(
+            child: RichText(
+              text: TextSpan(
+                  text: 'I agree with ',
+                  style: TextStyle(color: Colors.black, fontSize: 18),
+                  children: [
+                    TextSpan(
+                        text: 'All the terms and conditions',
+                        style: TextStyle(color: Colors.blue)),
+                    TextSpan(
+                      text: ' ?',
+                      style: TextStyle(color: Colors.red),
+                    )
+                  ]),
+            ),
+          )

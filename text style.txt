@@ -1,0 +1,11 @@
+Text(
+                  "First Data",textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 35,
+                      fontFamily: 'EduSABeginner',
+                      decoration: TextDecoration.underline,
+                       color: Colors.teal,
+                    fontWeight: FontWeight.w800,
+                    
+                  ),
+                ),

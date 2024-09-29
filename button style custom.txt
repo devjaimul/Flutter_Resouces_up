@@ -1,0 +1,8 @@
+ ButtonStyle buttonStyle=ElevatedButton.styleFrom(
+      backgroundColor: Colors.green,
+      minimumSize: Size(200, 60),
+
+    );
+
+
+ Padding(padding: EdgeInsets.all(10),child: ElevatedButton(onPressed: (){MySnackBar("information submitted", context);},child: Text("Submit"),style: buttonStyle,),)

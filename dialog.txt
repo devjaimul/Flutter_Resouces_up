@@ -1,0 +1,14 @@
+  void _showConformationDialog(){
+    showDialog(context: context, builder: (context){
+      return AlertDialog(
+
+        title: Text("Delete"),
+        content: Text('Are you Sure Want to delete??'),
+        actions: [
+          TextButton(onPressed: (){Navigator.pop(context);}, child: Text('Cancel')),
+          TextButton(onPressed: (){Navigator.pop(context);}, child: Text('Yes, delete')),
+        ],
+
+      );
+    });
+  }

@@ -1,0 +1,10 @@
+1. android studio theke menu > vcs> share on github 
+2.repository name ,and push
+
+
+//kisu chnage korar por abr upload
+
+1. pase thaka commit icon a click kore 
+2. chnages file gula select kora
+3. niche kono akta msg lekha j ki change hoyse
+4. commit & push a click kora

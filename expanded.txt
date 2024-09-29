@@ -1,0 +1,28 @@
+Row(
+        children: [
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: Colors.red,
+              height: 100,
+              width: 100,
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              color: Colors.green,
+              height: 90,
+              width: 90,
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: Container(
+              color: Colors.blue,
+              height: 80,
+              width: 80,
+            ),
+          ),
+        ],
+      )

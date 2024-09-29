@@ -1,0 +1,21 @@
+void main() {
+ 
+ print(rehan(35,555));
+}
+//return type soho function 
+String rehan(int x, int y) {
+  return x.toString() + y.toString();
+}
+
+
+//void function jar kono kisu return kora lage na
+
+
+void main() {
+ 
+  akik(3,5);
+}
+
+void akik(int x, int y) {
+  print(x + y);
+}

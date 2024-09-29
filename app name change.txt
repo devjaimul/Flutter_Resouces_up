@@ -1,0 +1,2 @@
+For Android, modify the android:label in the AndroidManifest.xml file located in android/app/src/main. Replace the existing value with your new app name.
+For iOS, modify the CFBundleName in the Info.plist file located in ios/Runner. Replace the existing value with your new app name.

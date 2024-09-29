@@ -1,0 +1,49 @@
+  Future<void> _addProduct() async {
+    _addNewProductInProgress = true;
+    setState(() {});
+    // Step 1: Set Url
+    const String addNewProductUrl =
+        'https://crud.teamrabbil.com/api/v1/CreateProduct';
+
+    // Step 2:  Prepare data
+    Map<String, dynamic> inputData = {
+      "Img": _imageTEController.text.trim(),
+      "ProductCode": _productCodeTEController.text,
+      "ProductName": _nameTEController.text,
+      "Qty": _quantityTEController.text,
+      "TotalPrice": _totalPriceTEController.text,
+      "UnitPrice": _unitPriceTEController.text
+    };
+
+    // URI -> Uniform Resource Identifier
+    // Step 3: Parse
+    Uri uri = Uri.parse(addNewProductUrl);
+    // Step 4: Send Request
+    Response response = await post(
+      uri,
+      body: jsonEncode(inputData),
+      headers: {'content-type': 'application/json'},
+    );
+    print(response.statusCode);
+    print(response.body);
+    print(response.headers);
+
+    _addNewProductInProgress = false;
+    setState(() {});
+
+    if (response.statusCode == 200) {
+      _nameTEController.clear();
+      _unitPriceTEController.clear();
+      _productCodeTEController.clear();
+      _quantityTEController.clear();
+      _totalPriceTEController.clear();
+      _imageTEController.clear();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('New product added!')),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Add new product failed! Try again.')),
+      );
+    }
+  }

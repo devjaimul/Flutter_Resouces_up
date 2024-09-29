@@ -1,0 +1,17 @@
+**ak akjon developer ak akta screen use kore and sbi master a commit & push korle jate ager code delte na hy aijonno branch create kora hy ,,j jar jar branch a kaj korbe pore merge kore dibe
+
+
+how to create branch
+1.android studio theke project ta github a share korar por upore master a click kore new branch theke branch create korte hbe
+
+**{branch create korar age must github a commit o push kora lagbe}**
+
+2.github a same vabe branch name select kore github a push kora lagbe
+
+pull request
+1.sb code onno branch theke master a ante merge pull request kora lagbe {code ar uporei sobuj button}
+   vitore dhuke sb thik thak thakle merge commit kore felbo
+
+
+3.ak ak branch a ak ak dhoroner kaj korte hole ,,, age main branch github a push korte hbe then,,
+ new branch create kore change kore push korte hbe then onno branch a checkout korte hbe.

@@ -1,0 +1,42 @@
+  child:Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+           Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 10),
+             child: PinCodeTextField(
+                 appContext: context,
+                 length: 6,
+               keyboardType: TextInputType.number,
+               animationType: AnimationType.fade,
+               cursorColor: Colors.red,
+               animationDuration: Duration(milliseconds: 100),
+               useHapticFeedback: bool.fromEnvironment(AutofillHints.creditCardSecurityCode),
+               //obscureText: true,
+              // obscuringCharacter: "x",
+               enabled: true,
+               enableActiveFill: true,
+               pinTheme: PinTheme(
+                 shape: PinCodeFieldShape.box,
+                 borderRadius: BorderRadius.circular(10),
+                 fieldHeight: 50,
+                 fieldWidth: 40,
+
+                 activeFillColor: Colors.yellow,
+                 activeColor: Colors.purple, //code deyar porer color
+
+                 selectedColor: Colors.greenAccent, // jeta select thake setar color
+                 selectedFillColor: Colors.teal,
+
+                 inactiveColor: Colors.deepOrange,  //inactive color
+                 inactiveFillColor: Colors.red,
+
+               ),
+
+             ),
+           )
+            ],
+          )
+
+
+
+// pubspec.yaml file  a pub dev theke pin code text field ar dependecis import kore pub get korte hbe

@@ -1,0 +1,13 @@
+//kon widget tar parent height ar 10 vager kto vag screen a show korbe ata ta bujay
+
+SizedBox(
+            height: 500,
+            width: MediaQuery.sizeOf(context).width,
+            child: FractionallySizedBox(
+              heightFactor: 0.3,
+              widthFactor: 0.9,
+              child: Container(
+                color: Colors.teal,
+              ),
+            ),
+          )

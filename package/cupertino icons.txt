@@ -1,0 +1,35 @@
+//Cupertino icons ios ar jonno use kora hy
+//ata alada vabe add korte hy na ata age thekei pubspec.yaml a add kora thake
+
+
+
+
+import 'package:flutter/cupertino.dart'; // ata must import korte hbe
+import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Center(child: Text("Appp barr")),
+
+        ),
+        body: Column(
+          children: [
+            Icon(Icons.home),
+            Icon(CupertinoIcons.home), // atay 
+          ],
+        ),
+      ),
+    );
+  }
+}

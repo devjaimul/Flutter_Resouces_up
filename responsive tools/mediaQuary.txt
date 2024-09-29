@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+//screen size and kon screen a ki vabe responsive kora hbe aisob kaje mediaquary lage
+    //ai 2 vabei kaj kora jay
+
+    // old
+    print(MediaQuery.of(context).displayFeatures);
+
+    //new
+    print(MediaQuery.displayFeaturesOf(context));
+
+    print(MediaQuery.sizeOf(context));
+    print(MediaQuery.sizeOf(context).width);
+    print(MediaQuery.sizeOf(context).height);
+    print(MediaQuery.orientationOf(context));
+    print(MediaQuery.devicePixelRatioOf(context));
+
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [Text(MediaQuery.sizeOf(context).width.toString())],
+      ),
+    );
+  }
+}
+
+
+final sizeHeight=MediaQuery.sizeOf(context).height;
+final sizeWidth=MediaQuery.sizeOf(context).width;

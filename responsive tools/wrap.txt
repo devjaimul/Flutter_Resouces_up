@@ -1,0 +1,20 @@
+//wrap akta widget ja row ar moto kaj kore kintu screen a text beci hole seta poere line a show kore 
+
+ Scaffold(
+      body: Center(
+        child: Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.end,
+          spacing: 8,
+          children: [
+            Text(MediaQuery.sizeOf(context).width.toString()),
+            Text(MediaQuery.sizeOf(context).width.toString()),
+            Text(MediaQuery.sizeOf(context).width.toString()),
+            Text(MediaQuery.sizeOf(context).width.toString()),
+            Text(MediaQuery.sizeOf(context).width.toString()),
+            Text(MediaQuery.sizeOf(context).width.toString()),
+            Text(MediaQuery.sizeOf(context).width.toString()),
+          ],
+        ),
+      ),
+    );

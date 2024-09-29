@@ -1,0 +1,7 @@
+//onk somoy project ar bairer external packeage ante hy like icons fete jay taile svg picture ana lage 
+
+
+1. first svg flutter ar package pub get kora lage 
+
+// aivabe use kora jay
+2. BottomNavigationBarItem(icon: SvgPicture.network('https://www.svgrepo.com/show/507820/play-square.svg') ,label: "play"),

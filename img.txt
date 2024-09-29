@@ -1,0 +1,31 @@
+//body ar moddhe rekhe korle vlo hy
+//online j kono img k kivabe show korbo
+
+ 
+ child: Ink.image(image: NetworkImage('https://th.bing.com/th/id/R.9ec7c9f7e8d2a43690829bf2bab12d7d?rik=VtbqjeTr7cBWfg&riu=http%3a%2f%2f4.bp.blogspot.com%2f-HAgGw1UxB0Y%2fVDxnZR3fDcI%2fAAAAAAAAA3Y%2fhq4wDStLUwg%2fs1600%2f4c3c9841310f26158b2391f4b19dff82.jpg&ehk=1iAqpqvadCmbv5hencpPrWGtujUblyI%2bf37kmFgHQI0%3d&risl=&pid=ImgRaw&r=0'),
+           width: 300,
+          height: double.infinity,
+          fit: BoxFit.fill,),
+     
+
+  /* child: Image(
+            image: NetworkImage(
+                'https://th.bing.com/th/id/R.9ec7c9f7e8d2a43690829bf2bab12d7d?rik=VtbqjeTr7cBWfg&riu=http%3a%2f%2f4.bp.blogspot.com%2f-HAgGw1UxB0Y%2fVDxnZR3fDcI%2fAAAAAAAAA3Y%2fhq4wDStLUwg%2fs1600%2f4c3c9841310f26158b2391f4b19dff82.jpg&ehk=1iAqpqvadCmbv5hencpPrWGtujUblyI%2bf37kmFgHQI0%3d&risl=&pid=ImgRaw&r=0')),
+
+
+
+
+
+
+
+//pc ar img kivabe show korbo
+//img ta take age--- group folder(app name) > new > directory jete hbe ,,then assets diectory khulte hbe
+//pubspec.yaml >find asset > ctrl + / >sb code soray > assets ar moddhee > directory name ("assets/"),, then pub get 
+// and gap must maintain korte hbe
+
+  assets:
+    - assets/
+    - images/ (ata hlo file ar nam)
+
+  Center(child: Image(image: AssetImage("assets/app_back.jpg"),),) 
+ body:Image.asset("images/pic.jpg")

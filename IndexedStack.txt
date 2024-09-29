@@ -1,0 +1,45 @@
+//ata stack ar motoi kintu ar maddhome akta screen ar upor r akta screeen rakha jay
+
+Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButton: Row(
+        children: [
+          FloatingActionButton(onPressed: (){
+            setState(() {
+
+              if(num==4){
+                num=0;
+              }
+              else{
+                num++;
+              }
+            });
+
+          }, child: Icon(Icons.add)),
+          SizedBox(width: 15,),
+          FloatingActionButton(onPressed: (){
+            setState(() {
+
+              if(num==0){
+                return;
+              }
+              else{
+                num--;
+              }
+            });
+
+          }, child: Icon(Icons.remove)),
+        ],
+      ),
+
+        body: IndexedStack(
+          index: num,
+          children: [
+            Container(color: Colors.red,child: Center(child: Text(num.toString(),style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold),)),),
+            Container(color: Colors.teal,child: Center(child: Text(num.toString(),style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold),)),),
+            Container(color: Colors.yellow,child: Center(child: Text(num.toString(),style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold),)),),
+            Container(color: Colors.blue,child: Center(child: Text(num.toString(),style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold),)),),
+            Container(color: Colors.pink,child: Center(child: Text(num.toString(),style: TextStyle(color: Colors.white,fontSize: 50,fontWeight: FontWeight.bold),)),),
+          ],
+        )
+    );

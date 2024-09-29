@@ -1,0 +1,79 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  //ai list a postlist rakha hoyse jar moddhe json data ase
+  List<dynamic> posts = [];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Photo Gallery App'),
+      ),
+      body: ListView.builder(
+        itemCount: posts.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              //error handleing kora hoyse
+              leading: Image.network(
+                posts[index]["thumbnailUrl"] ?? "Unknown",
+                width: 60,
+                height: 60,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.network(
+                    'https://imgs.search.brave.com/ojYTD4-OcjLZ8KqRKm8PP0vBdGGTbmyvtrVzdxiW35s/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAxLzAwLzA5LzY2/LzM2MF9GXzEwMDA5/NjY0NV9yNUV4SFlB/eVRGYzdwbHlVQVpN/aWs2OHFMWFlLa1gx/Uy5qcGc',
+                    width: 60,
+                    height: 60,
+                  );
+                },
+              ),
+              title: Text(
+                posts[index]["title"],
+                style: const TextStyle(color: Colors.black),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Future fetchData() async {
+    final url = Uri.parse('https://jsonplaceholder.typicode.com/photos');
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      print('data fectched Succesfully');
+
+      //normal String data k json decode kore map type kora hoyse
+      final jsonData = jsonDecode(response.body);
+      //akta variable ar moddhe json data k rakha hoyse bar bar call korar jonno
+
+      //  final  postList= jsonData['result'] as List;  //jdi array ar nam thake tahole [] akhne array ar nam hbe
+//final postList = jsonData as List; //nam na thakle
+      final postList = jsonData as List;  //array ar nam na thakle
+      //to update post again and again
+      setState(() {});
+      posts = postList;
+    } else {
+      print('failed');
+    }
+  }
+
+//sbr age surute ai method ta k call korar jonno
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchData();
+  }
+}

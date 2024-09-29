@@ -1,0 +1,5 @@
+ String a = "Jaimul Islam Akik";
+  print(a);
+  print(a.length); //koto gula character ase seta bujhay
+  print(a.substring(0,6)); // koto index theke koto index ar character print korbe ta bujhay
+  print(a.replaceAll("a", "**")); // kon character k ki diye change korbe ta bujhay

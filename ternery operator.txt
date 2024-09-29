@@ -1,0 +1,20 @@
+Text(x >5 ? 'x is greater than 5' : x.toString()),
+
+child: Icon(x>5 ? Icons.place : Icons.refresh),
+
+
+
+
+
+
+  arg['isPassed'] == true
+              ? const Icon(
+                  Icons.check_circle_outline,
+                  color: Colors.green,
+                  size: 30,
+                )
+              : const Icon(
+                  Icons.dangerous_outlined,
+                  color: Colors.red,
+                  size: 30,
+                )

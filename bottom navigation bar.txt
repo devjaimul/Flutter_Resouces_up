@@ -1,0 +1,108 @@
+//1st method
+
+import 'package:bdtask_assignmnet/views/home_screen.dart';
+import 'package:bdtask_assignmnet/views/setting_screen.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+class CustomNavBar extends StatefulWidget {
+  const CustomNavBar({super.key});
+
+  @override
+  State<CustomNavBar> createState() => _CustomNavBarState();
+}
+
+class _CustomNavBarState extends State<CustomNavBar> {
+  int currentIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> screen = [
+      const HomeScreen(),
+      const Center(
+        child: Text('Favourite Items'),
+      ),
+      const SettingScreen(),
+    ];
+
+    return Scaffold(
+      body: screen[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.pink,
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w500),
+          unselectedItemColor: Colors.black.withOpacity(0.6),
+          showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
+          currentIndex: currentIndex,
+          onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+                activeIcon: Icon(Icons.home),
+                icon: Icon(CupertinoIcons.home),
+                label: "Home"),
+            BottomNavigationBarItem(
+                activeIcon: Icon(Icons.favorite),
+                icon: Icon(Icons.favorite_border),
+                label: "Favourite"),
+            BottomNavigationBarItem(
+                activeIcon: Icon(Icons.settings_rounded),
+                icon: Icon(Icons.settings),
+                label: "Setting"),
+          ]),
+    );
+  }
+}
+
+
+
+//2nd current index ta uporer state a rakhte hbe
+
+
+
+class _NavBarState extends State<NavBar> {
+//akhne sb screen rakhte hbe nav bar index onujayi j kontar pore kontay jbe
+  List<Widget> screen=[
+    HomeScreen(),
+    Center(child: Text('My learning'),),
+    Center(child: Text('wishList'),),
+    Center(child: Text('setting'),),
+  ];
+  int currentIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: screen[currentIndex],  //uporer list ar moddhe j screen gula rakha hbe segula nav bar ar index onujayi screen swithch korbe
+      bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: AppColors.primaryColor,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
+          unselectedItemColor: Colors.black.withOpacity(0.6),
+          showUnselectedLabels: true,
+          // showSelectedLabels: false,
+          type: BottomNavigationBarType.fixed,  //by default shifting thake aktay click korle oono tay chole jay tai fixed kore deya
+          currentIndex: currentIndex,  //ata r on tap diye ata bujhay j click korle selected color show kore
+          onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+              activeIcon: Icon(Icons.star),
+                icon: Icon(Icons.star_border_outlined), label: "Featured"),
+            BottomNavigationBarItem(
+                activeIcon: Icon(Icons.play_circle),
+                icon: Icon(Icons.play_circle_outline_outlined),
+                label: "My Learning"),
+            BottomNavigationBarItem(
+                activeIcon: Icon(Icons.favorite),
+                icon: Icon(Icons.favorite_border_outlined), label: "Wishlist"),
+            BottomNavigationBarItem(
+                activeIcon: Icon(Icons.settings_rounded),
+                icon: Icon(Icons.settings), label: "Setting"),
+          ]),
+    );
+  }
+}

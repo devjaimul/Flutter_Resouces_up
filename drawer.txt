@@ -1,0 +1,74 @@
+drawer: Drawer(
+      backgroundColor: Colors.greenAccent,
+      child: ListView(
+
+
+          children: [
+
+      UserAccountsDrawerHeader(
+      decoration: BoxDecoration( color: Colors.green ),
+      currentAccountPicture: CircleAvatar(
+        backgroundColor: Colors.blueGrey,
+        child: Icon(Icons.person,size: 40),
+        radius: 20,
+      ),
+      accountName: Text("Jaimul Islam Akik" ),
+      accountEmail: Text("jaimulislam0777@gmail.com"),
+
+
+    ),
+
+    ],
+    )
+    )
+
+
+
+// details one
+
+ drawer: Drawer(
+
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+
+                decoration: BoxDecoration(
+                  color: Colors.teal,
+                ),
+
+
+                currentAccountPicture: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://4.bp.blogspot.com/-7lKcs3VI8Kg/WtgJ__1RxaI/AAAAAAAAF9Q/6XFIxYxnGkspQc7-kvDMlzf-8cx0_khewCEwYBhgL/s1600/best%2Bprofile%2Bpics.png")),
+                currentAccountPictureSize: Size(70, 70),
+
+
+                accountName: Text("Jaimul Islam Akik"),
+                accountEmail: Text("ashrafulrehan2@gmail.com")),
+
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenTwo(),));
+
+              },
+            ),
+
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text("Contact"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenThree(),));
+              },
+            ),
+
+            ListTile(
+              leading: Icon(Icons.add),
+              title: Text("Other"),
+              onTap: (){},
+            ),
+          ],
+        ),
+      ),

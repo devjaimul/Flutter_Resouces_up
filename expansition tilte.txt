@@ -1,0 +1,15 @@
+ ExpansionTile(
+            leading: Icon(Icons.add),
+            title: Text('Are you available for work??'),
+            subtitle: Text('see more'),
+            //trailing: Icon(Icons.accessibility),
+            children: [
+              Text('yes iam available for any kind of work'),
+            ],
+            backgroundColor: Colors.grey.shade300,
+            iconColor: Colors.blue.shade300,
+            // textColor: Colors.black.withOpacity(0.5),
+            onExpansionChanged: (value) {
+              print(value);
+            },
+          ),

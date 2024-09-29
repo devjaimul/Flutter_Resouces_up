@@ -1,0 +1,64 @@
+import 'package:calculator_app/constant.dart';
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+    title: Text("Calculator"),
+      ),
+      body: SafeArea(
+        child: Column(
+    children: [
+
+     
+
+
+      MyButton(title: "sign up",subtitle: " go ",),
+      MyButton(title: "Login",subtitle: " go ",),
+      MyButton(),
+
+    ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+// component button
+
+class MyButton extends StatelessWidget {
+
+ final String title, subtitle; //ki ki parameter thakbe seta decide korte hbe
+  const MyButton({super.key, required this.title,required this.subtitle}); //required this diye pass kora hy & jdi required na dei taile amne lekhte hbe this.title="" ,taile parameter pass na korleo problem hbe na,abr aikhne defalut kisu value diye parameter a change korle parameter ar tay thakbe
+
+  @override
+  Widget build(BuildContext context) {
+    return  Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+      child: Container(
+        height: 50,
+        child: Center(child: Text(title +subtitle ,style: TextStyle(color: Colors.white, 
+          fontSize: 25,))),
+
+        decoration: BoxDecoration(
+          color: Colors.deepOrange,
+          borderRadius: BorderRadius.circular(8),
+
+
+
+        ),
+      ),
+    );
+  }
+}

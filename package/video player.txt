@@ -1,0 +1,107 @@
+//age pub dev theke package install korte hbe then agula
+
+import 'package:e_learing_app/utlis/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
+class CourseDetails extends StatefulWidget {
+  
+
+  const CourseDetails({super.key});
+
+
+  @override
+  State<CourseDetails> createState() => _CourseDetailsState();
+
+}
+
+//aituk example theke niye aste hbe
+
+class _CourseDetailsState extends State<CourseDetails> {
+  late VideoPlayerController _controller;
+
+  @override
+//akta init state use korte hbe
+
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.networkUrl(Uri.parse(
+        'https://youtu.be/4vvctNyk9rA?si=gWA8TdRW3UoFIK7T'))
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {
+          _controller.play();
+        });
+      });
+  }
+//screen teke ber hoye asleo jate video na cholte thake aijonno dispose use korte hbe
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.dispose();
+  }
+  @override
+  Widget build(BuildContext context) {
+final size=MediaQuery.sizeOf(context);
+    return Scaffold(
+     //video player design
+
+      body: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          children: [
+            Container(
+              height: size.height*.25,
+              width: size.width*.90,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 0.5,
+                    blurRadius: 10
+                  )
+                ]
+              ),
+              child: _controller.value.isInitialized
+                  ? AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              )
+                  : Container(
+              child:  Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.grey,
+                  color: AppColors.primaryColor,
+                  strokeWidth: 5,
+
+
+
+                ),
+              ),
+              ),
+            ),
+
+          ],
+        ),
+      ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: AppColors.primaryColor,
+          foregroundColor: Colors.white.withOpacity(0.8),
+          onPressed: () {
+            setState(() {
+              _controller.value.isPlaying
+                  ? _controller.pause()
+                  : _controller.play();
+            });
+          },
+          child: Icon(
+            _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+          ),
+        )
+
+    );
+  }
+}

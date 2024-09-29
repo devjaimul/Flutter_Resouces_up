@@ -1,0 +1,20 @@
+//screen landscape hole ki deign thakbe and portrait thakle ki design thakbe ta ata diye thik kora hy 
+
+Scaffold(
+      body: OrientationBuilder(builder: (context, orientation) {
+        if(orientation==Orientation.portrait){
+          return Container(
+            height: double.infinity,
+            width: double.infinity,
+            color: Colors.teal,
+          );
+        }
+        else {
+          return Container(
+            height: double.infinity,
+            width: double.infinity,
+            color: Colors.blue.shade300,
+          );
+        }
+      },),
+    );

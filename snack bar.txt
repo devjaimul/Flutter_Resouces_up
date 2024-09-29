@@ -1,0 +1,38 @@
+1. single aktar jonno snackbar message
+
+  ElevatedButton(
+              onPressed: () {
+                
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text('welcome home '),
+                  backgroundColor: Colors.amber,
+                  duration: Duration(seconds: 1),
+                  
+                ));
+                //Scaffold.of(context).sh
+              },
+              child: Icon(Icons.home)),
+
+
+2. multiple kaje use korar jonno ,,
+
+
+//akta function create kore para meter pass kore dise
+
+ MySnackBar (message,Context){
+    return ScaffoldMessenger.of(Context).showSnackBar
+      (SnackBar(content: Text(message)));
+  }
+
+
+
+
+body: Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  children: [
+
+    TextButton(onPressed: (){MySnackBar("i am a text button", context);}, child: Text("text button")),
+    ElevatedButton(onPressed: (){MySnackBar("i am a elaveted button", context);}, child: Text("elavated button")),
+    OutlinedButton(onPressed: (){MySnackBar("i am a outline button", context);}, child: Text("outline button")),
+  ]
+)

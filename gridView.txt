@@ -1,0 +1,38 @@
+//static gridview 
+
+ body: GridView(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+      children: [
+        Text('1'),
+        Text('2'),
+        Text('3'),
+        Text('4'),
+        Text('5'),
+        Text('6'),
+        Text('7'),
+      ],),
+
+
+//dynamic GridView
+
+  body: GridView.builder(
+  shrinkWrap: true,
+      primary: false,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 0.5,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 15,
+
+      ),
+      itemCount: studentList.length,
+      itemBuilder: (context, index) {
+        return Column(
+          children: [
+            Text("Roll -- ${index + 1}"),
+            Text(studentList[index]),
+          ],
+        );
+      },
+    ));

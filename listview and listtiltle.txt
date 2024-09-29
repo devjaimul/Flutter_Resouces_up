@@ -1,0 +1,16 @@
+ Expanded(
+                child: ListView.builder(
+                  itemCount: 100,
+                  itemBuilder: (context, index) {
+                    return  ListTile(
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage('https://th.bing.com/th/id/OIP.Vx_YPLOYMBqrOams6sqZlQHaJS?pid=ImgDet&rs=1'),
+                        radius: 40,
+                      ),
+                      title: Text("Rehan Empire"),
+                      subtitle: Text("Subscribe to my channel"),
+                      trailing: Text('9.42 PM'),
+                    );
+                  },
+                ),
+              )

@@ -1,0 +1,180 @@
+import 'dart:async';
+import 'dart:convert';
+import 'package:flutter_courses/Home%20Screens/product.dart';
+import 'package:http/http.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_courses/Home%20Screens/add_products.dart';
+import 'package:flutter_courses/Home%20Screens/update_products.dart';
+
+class ProductList extends StatefulWidget {
+  const ProductList({super.key});
+
+  @override
+  State<ProductList> createState() => _ProductListState();
+}
+
+class _ProductListState extends State<ProductList> {
+  bool _getProductListInProgress = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _getProductList();
+  }
+
+  List<Product> productlist = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Product List'),
+      ),
+      body: RefreshIndicator(
+        onRefresh: _getProductList,
+        child: Visibility(
+          visible: _getProductListInProgress == false,
+          replacement: const Center(
+            child: CircularProgressIndicator(
+              color: Colors.blue,
+            ),
+          ),
+          child: ListView.separated(
+            itemCount: productlist.length,
+            itemBuilder: (context, index) {
+              return _buildListTile(productlist[index]);
+            },
+            separatorBuilder: (_, __) => const Divider(),
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const AddProduct(),
+              ));
+        },
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+
+  Future<void> _getProductList() async {
+    _getProductListInProgress = true;
+    setState(() {});
+    productlist.clear();
+    const String productListUrl =
+        'https://crud.teamrabbil.com/api/v1/ReadProduct';
+    Uri uri = Uri.parse(productListUrl);
+    Response response = await get(uri);
+    print(response.statusCode);
+    print(response.body);
+    if (response.statusCode == 200) {
+      final decodeData=jsonDecode(response.body);
+     final jsonProductList= decodeData['data'];
+
+      for(Map<String,dynamic> p in jsonProductList){
+        Product product = Product(
+            id: p['_id'] ?? "",
+            productName: p['ProductName'] ?? "Unknown",
+            productCode: p['ProductCode'] ?? "",
+            quantity: p['Qty'] ?? "",
+            unitPrice: p['UnitPrice'] ?? "",
+            totalPrice: p['TotalPrice'] ?? "",
+            image: p['Img'] ?? "",
+        );
+        productlist.add(product);
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Getting Product fail!! Try Again '),
+        backgroundColor: Colors.blue,
+      ));
+    }
+    _getProductListInProgress=false;
+    setState(() {
+
+    });
+  }
+
+  Widget _buildListTile(Product product) {
+    return ListTile(
+        leading: Image.network(
+         product.image,
+          height: 60,
+          width: 60,
+        ),
+        title:  Text(product.productName),
+        subtitle:  Wrap(
+          children: [
+            Text('Unit Price : ${product.unitPrice}'),
+            Text(' Quantity  : ${product.quantity}'),
+            Text('total Price : ${product.totalPrice}'),
+          ],
+        ),
+        trailing: Wrap(
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>  UpdateProduct(product: product,),
+                      ));
+                },
+                icon: const Icon(Icons.edit)),
+            IconButton(
+                onPressed: () {
+                  _showConformationDialog();
+                },
+                icon: const Icon(Icons.delete)),
+          ],
+        ));
+  }
+
+  void _showConformationDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text("Delete"),
+            content: const Text('Are you Sure Want to delete??'),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Cancel')),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Yes, delete')),
+            ],
+          );
+        });
+  }
+}
+
+// class Product {
+//   final String id;
+//   final String productName;
+//   final String productCode;
+//   final String quantity;
+//   final String unitPrice;
+//   final String totalPrice;
+//   final String image;
+//
+//   Product(
+//       {required this.id,
+//       required this.productName,
+//       required this.productCode,
+//       required this.quantity,
+//       required this.unitPrice,
+//       required this.totalPrice,
+//       required this.image});
+// }

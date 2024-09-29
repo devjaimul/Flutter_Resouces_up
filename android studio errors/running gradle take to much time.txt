@@ -1,0 +1,4 @@
+android studio terminal
+
+1. cd android
+2../gradlew clean build

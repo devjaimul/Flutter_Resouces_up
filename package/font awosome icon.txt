@@ -1,0 +1,63 @@
+// pub.dev theke dependencis niye pubspec.yaml boshate hbe
+
+
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart'; // import na hole manuallay korte hbe
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Center(child: Text("Appp barr")),
+
+        ),
+        body: Column(
+          children: [
+            Icon(Icons.home),
+            Icon(CupertinoIcons.home),
+            Icon(FontAwesomeIcons.home), //atay main
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+//pubspec.yaml
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  font_awesome_flutter: ^10.5.0  // ai line ta pub dev font awosome theke ante hbe then pub get korte hbe
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0

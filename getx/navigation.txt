@@ -1,0 +1,74 @@
+   ElevatedButton(
+                onPressed: () {
+//navigation with getx
+
+                  //jdi chai j page a jbo sekhne theke r back na korte
+                  // Get.offAll(
+                  //     () => ResultScreen(result: controller.counter.value),
+                  //
+                  // );
+
+                  Get.to(() => const ResultScreen(),
+
+                      //kivabe arguments pass korte hy
+
+                      // arguments: controller.counter.value, //single argument
+
+                      //multiple argument
+
+                      arguments: {
+                        'Name': 'Jia',
+                        'Roll': '550675',
+                        'isPassed': true,
+                      });
+                },
+                child: const Text('Show Result')),
+
+//onno page a para meter get kore jmnne
+
+
+//ager pager arguments get kre
+    // final arg=Get.arguments as int;  //akta single data type nibe
+    final arg = Get.arguments; //avabe rakhle sb data nibe map/int/duble
+
+
+//full code
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class ResultScreen extends StatelessWidget {
+  const ResultScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    //ager pager arguments get kre
+    // final arg=Get.arguments as int;  //akta single data type nibe
+    final arg = Get.arguments; //avabe rakhle sb data nibe map/int/duble
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Result page'),
+        centerTitle: true,
+        backgroundColor: Colors.teal,
+        foregroundColor: Colors.white,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+              "Name : ${arg['Name']} \n Roll : ${arg['Roll']}",
+              style: const TextStyle(fontSize: 30),
+            ),
+          ),
+
+        ],
+      ),
+    );
+  }
+}
+
+
+

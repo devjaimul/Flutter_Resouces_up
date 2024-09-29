@@ -1,0 +1,20 @@
+  appBar: AppBar(
+        title: Text("rehan empire"),
+        centerTitle: true,
+           automaticallyImplyLeading: false,  //pase j arrow ta se seta remove kore day
+        backgroundColor: Colors.green,
+         leading: Icon(Icons.menu),
+        
+        actions: [
+          IconButton(onPressed: () { MySnackBar("i am search",context); }, icon:Icon(Icons.search_sharp)),
+
+        ],
+
+         /*
+
+          actions: [
+            IconButton(onPressed: (){}, icon: Icon(Icons.add,color: Colors.white,)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.h_plus_mobiledata,color: Colors.white,)),
+          ],*/
+
+      ),

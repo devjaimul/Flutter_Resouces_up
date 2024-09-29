@@ -1,0 +1,56 @@
+// kono nam k chnage korar por jdi refactor kri tahole seta joto jayga ase sekhne chng hoye jay,,,, refactor>rename
+
+ body: SafeArea(
+        child: Column(
+    children: [
+
+      Text("Rehan",style: headingTextstyle,),
+      Text("Jaimul",style: TextStyle(color: tealColor),),
+      Text("Ashraful" ,style: headingTextstyle,),
+      Text("Akik", style: TextStyle(color: blueColor )),
+
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Container(
+          height: 50,
+           child: Center(child: Text("Login" ,style: textstyle,)),
+
+          decoration: BoxDecoration(
+            color: Colors.deepOrange,
+            borderRadius: BorderRadius.circular(8),
+
+
+
+          ),
+        ),
+      )
+
+    ],
+        ),
+      ),
+
+
+
+// alada akta dart file khulte hbe
+
+
+
+import 'package:flutter/material.dart';
+import 'dart:ui';
+
+const Color blueColor =  Colors.blue;
+
+const Color tealColor= Colors.teal;
+
+const headingTextstyle =TextStyle(
+  fontSize: 40,
+  fontStyle: FontStyle.italic,
+);
+
+const  textstyle= TextStyle(
+  color: Colors.white,
+  fontSize: 30,
+);
+
+
+

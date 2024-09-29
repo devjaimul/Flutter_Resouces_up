@@ -1,0 +1,8 @@
+//ata bujhay width o height ar onupat ,,mane atar onupate oita koto,,,first ar ta width,,second ta height
+
+Column(
+        children: [
+        
+          AspectRatio(aspectRatio:16/12 ,child: Container(color: Colors.deepOrange,),)
+        ],
+      ),

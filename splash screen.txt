@@ -1,0 +1,78 @@
+//1st method (assets image)
+
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:whatsapp/views/home_screen.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+          (route) => false);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+          child: Image(
+        image: AssetImage("assets/images/logo.webp"),
+        color: Colors.blue,
+        height: 200,
+        width: 200,
+      )),
+    );
+  }
+}
+
+//2nd mthod (network image)
+
+
+import 'dart:async';
+
+import 'package:a04/home_screen.dart';
+import 'package:flutter/material.dart';
+
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {        //ai funtuction ta use kore kore prothom a spalsh splash screen dekhano hy
+    // TODO: implement initState
+    super.initState();
+     Timer(Duration(seconds: 5), () {
+                    //pisoner kono page thakbe na ai page a akbr jayor por.ai page a jayor por r back kora jbe na
+
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Home()),(route) => false);
+     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      body: Ink.image(
+       // height: double.infinity,
+        //fit: BoxFit.fitHeight,
+image: NetworkImage("https://blog.eduonix.com/wp-content/uploads/2015/02/404-Error.jpg"),      ),
+    );
+  }
+}

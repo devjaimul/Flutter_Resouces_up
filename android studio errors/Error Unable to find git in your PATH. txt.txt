@@ -1,0 +1,7 @@
+environment varibale a systwm user add
+
+
+C:\Program Files\Git\bin\git.exe;C:\Program Files\Git\cmd;C:\Windows\System32 
+to your PATH variable
+
+Do not create new variable for git but add them as I did one after another separating them by ;

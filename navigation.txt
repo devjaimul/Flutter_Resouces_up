@@ -1,0 +1,118 @@
+//akta dart file theke onno dart file a jayor code
+
+ 
+Column(
+          children:[
+          Center(
+            child: TextButton(
+            onPressed: (){
+              
+             //akta file theke onno file jbe pisoner sb page thik e thakbe,,back button diye pisoner page a jaya jabe
+
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenTwo(),));
+
+            //pisoner kono page thakbe na ai page a akbr jayor por.ai page a jayor por r back kora jbe na
+
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Home()),(route) => false);
+
+          //jdi chai j ager sudu akta page a back jayoa jbe na tar ager ta jbe tahole ata
+
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ScreenTwo()));
+            },
+      child: Text("button"),
+    ),
+          )
+
+    ]
+      )
+
+
+
+// button a click korle piser dart file a back anbe
+
+
+ Column(
+        children: [
+
+          TextButton(onPressed: (){ 
+//ager page a back korar button
+
+  Navigator.pop(context); 
+
+  }, 
+
+child: Text("back button"))
+        ],
+      ),
+
+
+
+// full code dart file 1
+
+import 'package:a03/screen_two.dart';
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text("A03")),
+
+      ),
+      body:
+      Column(
+          children:[
+          Center(
+            child: TextButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenTwo(),));
+            },
+      child: Text("button"),
+    ),
+          )
+
+    ]
+      )
+
+      ,
+    );
+  }
+}
+
+
+
+// dart file to 2
+
+import 'package:flutter/material.dart';
+
+class ScreenTwo extends StatefulWidget {
+  const ScreenTwo({super.key});
+
+  @override
+  State<ScreenTwo> createState() => _ScreenTwoState();
+}
+
+class _ScreenTwoState extends State<ScreenTwo> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("screen two"),
+
+      ),
+      body: Column(
+        children: [
+          TextButton(onPressed: (){ Navigator.pop(context);}, child: Text("back button"))
+        ],
+      ),
+    );
+  }
+}

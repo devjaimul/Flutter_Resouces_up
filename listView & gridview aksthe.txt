@@ -1,0 +1,52 @@
+//2 ta aksthe use korte hole   (shrinkWrap: true, primary: false,) korte hbe ,,tailei ata kaj korbe and scroll o korbe
+
+
+ body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListView.separated(
+              shrinkWrap: true,//Gridview & listview ar akta height ar dorkar hy jkhn 2 ta skthe thake ,,setay solve kore shrinkwrap
+              primary: false, //ata na dile ata j jayga niye thakbe se jaygay scroll korle kaj korbe na
+              itemCount: studentList.length,
+              itemBuilder: (context,index){
+                return Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Center(child: Text(studentList[index],style: TextStyle(fontSize: 25),)),
+                );
+              },
+              separatorBuilder: (context, index) {
+                //return Text('This is a separetor');
+                return Divider(
+                  height: 20,
+                  color: Colors.red,
+                  thickness: 5,
+                  endIndent: 16,
+                  indent: 10,
+
+                );
+
+
+              },),
+          GridView.builder(
+            shrinkWrap: true, //Gridview & listview ar akta height ar dorkar hy jkhn 2 ta skthe thake ,,setay solve kore shrinkwrap
+            primary: false,  //ata na dile ata j jayga niye thakbe se jaygay scroll korle kaj korbe na
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 1,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 15,
+
+            ),
+            itemCount: studentList.length,
+            itemBuilder: (context, index) {
+              return Column(
+                children: [
+                  Text("Roll -- ${index + 1}"),
+                  Text(studentList[index]),
+                ],
+              );
+            },
+          ),
+          ],
+        ),
+      )

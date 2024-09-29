@@ -1,0 +1,32 @@
+   // if (_addNewProductInProgress == true)
+                //   const Center(
+                //     child: CircularProgressIndicator(),
+                //   )
+                // else
+                //   ElevatedButton(
+                //     onPressed: () {
+                //       if (_formKey.currentState!.validate()) {
+                //         _addProduct();
+                //       }
+                //     },
+                //     child: const Text('Add'),
+                //   )
+
+
+
+//2 ta ak e, visibility better way 
+
+                Visibility(
+                  visible: _addNewProductInProgress == false,
+                  replacement: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        _addProduct();
+                      }
+                    },
+                    child: const Text('Add'),
+                  ),
+                ),

@@ -1,0 +1,23 @@
+//j kono kisu k button a convert kore day
+// onno function s day j 1 click a ki hbe 2 click a ki hbe long press a ki hbe r o onk kisu
+//normal kaj gular khetre ata use korte hy
+
+InkWell(
+            onTap: () {
+              print('single press');
+            },
+            onDoubleTap: () {
+              print('This is a double tap');
+            },
+            onLongPress: () {
+              print('this is a long tap');
+            },
+            //  onDoubleTapCancel: (){print('double tap cancel');},
+
+            child: Row(
+              children: [
+                Text('button1 '),
+                Icon(Icons.code_off_sharp),
+              ],
+            ),
+          ),

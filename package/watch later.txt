@@ -1,0 +1,2 @@
+1. responsive design
+2. sizer

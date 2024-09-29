@@ -1,0 +1,33 @@
+//puv dev theke shared prepharence ar package pubspec.yaml ar dependis a boshate hbe
+
+InkWell(
+
+                onTap: () async{
+                  SharedPreferences sp =await SharedPreferences.getInstance();
+
+                  sp.setString("name", "Akik");
+                  sp.setInt("age", 20);
+                  sp.setBool("access", false);
+
+
+                  print(sp.getString('name'));
+                  print(sp.getInt('age').toString());
+                  print(sp.getBool("access"));
+
+                  sp.remove('name');
+                  print(sp.getString('name'));
+                 // Navigator.push(context, MaterialPageRoute(builder: (context) => Homescreen(),));
+                },
+                child: Container(
+                  height: 40,
+
+                  child: Center(child: Text("Submit",style: TextStyle(color: Colors.white,fontSize: 20),)),
+
+
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(5),
+
+                  ),
+                ),
+              ),

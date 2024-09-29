@@ -1,0 +1,86 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Home(),
+      theme:
+//by deafult light mode e thake 
+      ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+          )),
+          textButtonTheme: TextButtonThemeData(style: ButtonStyles.textButton),
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.pinkAccent,
+            foregroundColor: Colors.white,
+            centerTitle: true,
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            // fillColor: Colors.blueAccent,
+            // filled: true,
+            enabledBorder:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+            focusedBorder:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+          )),
+//dark theme design kora hoyse
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+          appBarTheme: AppBarTheme(backgroundColor: Colors.purpleAccent,centerTitle: true,),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(foregroundColor: Colors.white,
+                   backgroundColor: Colors.purple
+              )),
+        textButtonTheme: TextButtonThemeData(style: ButtonStyles.textButton),
+        inputDecorationTheme: InputDecorationTheme(
+
+        )
+            ),
+      themeMode: ThemeMode.dark,
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Theme'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(onPressed: () {}, child: Text('Button One')),
+          ElevatedButton(onPressed: () {}, child: Text('Button Two')),
+          TextButton(onPressed: () {}, child: Text('Text button')),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: TextField(),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+//alada akta class create kore button style dise
+class ButtonStyles {
+  static ButtonStyle textButton = TextButton.styleFrom(
+    backgroundColor: Colors.pink,
+    foregroundColor: Colors.white,
+  );
+}

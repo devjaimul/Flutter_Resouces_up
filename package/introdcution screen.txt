@@ -1,0 +1,51 @@
+import 'package:assignment_app/views/home_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:introduction_screen/introduction_screen.dart';
+
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body:  SafeArea(
+        child: IntroductionScreen(
+          pages: [
+            PageViewModel(
+              title: "First slider",
+              body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+              image: Center(
+                child: Image.network('https://imgs.search.brave.com/anFFcdNJcVA0vyFPz_M1gS0r5C3UqoSZ_S2tDWM5p3Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQL0pvYnND/YXJlZXJzLTkwMTU2/ODY2MC5qcGc'),
+              ),
+            ),
+            PageViewModel(
+              title: "Second slider",
+              body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+              image: Center(
+                child:Image.network('https://imgs.search.brave.com/anFFcdNJcVA0vyFPz_M1gS0r5C3UqoSZ_S2tDWM5p3Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQL0pvYnND/YXJlZXJzLTkwMTU2/ODY2MC5qcGc'),
+              ),
+            ),
+            PageViewModel(
+              title: "Three slider",
+              body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+              image: Center(
+                child: Image.network('https://imgs.search.brave.com/anFFcdNJcVA0vyFPz_M1gS0r5C3UqoSZ_S2tDWM5p3Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQL0pvYnND/YXJlZXJzLTkwMTU2/ODY2MC5qcGc'),
+              ),
+            ),
+          ],
+          onDone: () => _onIntroEnd(context),
+          showSkipButton: true,
+          skip: const Text('Skip'),
+          next: const Icon(Icons.arrow_forward),
+          done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+        ),
+      ),
+    );
+  }
+
+  void _onIntroEnd(context) {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (_) => const HomeScreen()),
+    );
+  }
+}

@@ -1,0 +1,165 @@
+//main.dart
+
+
+
+import 'package:a03/home_screen.dart';
+import 'package:a03/screen_three.dart';
+import 'package:a03/screen_two.dart';
+import 'package:flutter/material.dart';
+
+
+void main() {
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+         debugShowCheckedModeBanner: false,
+       
+        initialRoute: HomeScreen.id,    //first a kon page thake seta bujay initial routing diye
+      routes:{
+
+             //sb gula routing page k define kora hoyse aikhne
+
+          HomeScreen.id : (context) => HomeScreen(),
+            ScreenTwo.id :(context) => ScreenTwo(),
+        ScreenThree.id : (context) => ScreenThree(),
+
+      },
+
+
+        );
+
+  }
+}
+
+
+
+
+// homescreen.dart /1st page
+
+
+
+
+import 'package:a03/screen_two.dart';
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatefulWidget {
+  static const String id ="HomeScreen";
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text("A03")),
+
+      ),
+      body:
+      Column(
+          children:[
+          Center(
+
+       child: TextButton(
+        onPressed: (){
+                 Navigator.pushNamed(context, ScreenTwo.id); //navigator.pushNamed use korar por j screen ar nam dibo setay route hbe ,
+
+        //  Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenTwo(),)); //routing use korle navigator lage na
+            },
+       child: Text("button"),
+     ),
+           )
+
+    ]
+      )
+
+      ,
+    );
+  }
+}
+
+
+
+
+
+// screentwo / 2nd page
+
+
+
+
+
+import 'package:a03/screen_three.dart';
+import 'package:flutter/material.dart';
+
+class ScreenTwo extends StatefulWidget {
+  static const String id ="ScreenTwo";
+  const ScreenTwo({super.key});
+
+  @override
+  State<ScreenTwo> createState() => _ScreenTwoState();
+}
+
+class _ScreenTwoState extends State<ScreenTwo> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("screen two"),
+
+      ),
+      body: Column(
+        children: [
+          TextButton(onPressed: (){Navigator.pushNamed(context, ScreenThree.id);}, child: Text("next")),
+          TextButton(onPressed: (){ Navigator.pop(context);}, child: Text("back button"))
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+//screenthree /3rd page
+
+
+
+
+import 'package:flutter/material.dart';
+
+class ScreenThree extends StatefulWidget {
+  static const String id ="ScreenThree";
+  const ScreenThree({super.key});
+
+  @override
+  State<ScreenThree> createState() => _ScreenThreeState();
+}
+
+class _ScreenThreeState extends State<ScreenThree> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("screen Three"),
+
+      ),
+      body: Column(
+        children: [
+          //  TextButton(onPressed: (){}, child: Text(" back button"))
+          TextButton(onPressed: (){ Navigator.pop(context);}, child: Text("back button"))
+        ],
+      ),
+    );
+  }
+}

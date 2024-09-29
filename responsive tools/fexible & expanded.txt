@@ -1,0 +1,20 @@
+//kono parent widget k responsive korte felxible ba expanded widget use kora hy
+//expanded holo flexible ar e new version
+
+Scaffold(
+      body: Column(
+        children: [
+          //flexible
+
+          // Flexible(fit: FlexFit.tight,flex: 2, child: Container(height: 100,width: 100,color: Colors.teal,)),
+          // Flexible(fit: FlexFit.tight, child: Container(height: 100,width: 100,color: Colors.yellow,)),
+          // Flexible(fit: FlexFit.tight, child: Container(height: 100,width: 100,color: Colors.blue,)),
+
+          //expanded
+          Expanded(flex:3, child: Container(height: 100,width: 100,color: Colors.teal,)),
+          Expanded(flex:1, child: Container(height: 100,width: 100,color: Colors.yellow,)),
+          Expanded(flex:2, child: Container(height: 100,width: 100,color: Colors.blue,)),
+         
+        ],
+      ),
+    );

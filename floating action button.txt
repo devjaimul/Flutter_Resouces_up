@@ -1,0 +1,8 @@
+  floatingActionButton: FloatingActionButton(
+        elevation: 5,
+        child: Icon(Icons.add),
+        onPressed: (){
+          MySnackBar("iam floating button", context);
+        },
+        backgroundColor: Colors.green,
+      ),

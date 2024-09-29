@@ -1,0 +1,65 @@
+1.single button a use korar jonno alert dialog
+
+ IconButton(onPressed: (){
+           showDialog(context: context, builder: (context){
+             return AlertDialog(title: Text('profile'),
+             content: Text('do you wanna exit '),
+             backgroundColor: Colors.grey.shade300,
+               actions: [
+                 TextButton(onPressed: (){
+                   Navigator.of(context).pop();
+                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Delte success')));}
+                   , child: Text("Yes"),),
+                 TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text("No"))
+               ],
+             );
+           });
+
+
+         }, icon: Icon(Icons.co_present_rounded)),
+
+2.multiple time use korar jonno 
+
+ body: Center(
+
+
+        child: Container(
+
+
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(onPressed: (){MyAlretDialog(context);}, child: Text("click here")),
+            ],
+          ),
+        ),
+      ),
+
+
+
+
+//akta para meter function create kore nite hbe
+
+MyAlretDialog (context) {
+  return showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return Expanded(
+            child:AlertDialog(
+              title: Text("Alert !"),
+              content: Text("Do you want to close it?"),
+              actions: [
+                TextButton(onPressed: (){
+                Navigator.of(context).pop();
+                MySnackBar("Delete succes", context);}
+                    , child: Text("Yes"),),
+
+
+                TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text("No"))
+              ],
+            )
+        );
+
+      }
+  );
+}

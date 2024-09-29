@@ -1,0 +1,152 @@
+import 'package:flutter/material.dart';
+
+class AddProduct extends StatefulWidget {
+  const AddProduct({super.key});
+
+  @override
+  State<AddProduct> createState() => _AddProductState();
+}
+
+class _AddProductState extends State<AddProduct> {
+  final TextEditingController _nameTEController = TextEditingController();
+  final TextEditingController _unitPriceTEController = TextEditingController();
+  final TextEditingController _quantityTEController = TextEditingController();
+  final TextEditingController _totalPriceTEController = TextEditingController();
+  final TextEditingController _imageTEController = TextEditingController();
+  final GlobalKey<FormState> _formerly=GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Add New'),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: _buildForm(),
+        ),
+      ),
+    );
+
+  }
+
+  Widget _buildForm() {
+    return Form(
+      key: _formerly,
+      child: Column(
+        children: [
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            validator: (String? value) {
+              if (value == null || value.trim().isEmpty) {
+                return 'Write your Product name!';
+              }
+              return null;
+            },
+            controller: _nameTEController,
+            cursorColor: Colors.blue,
+            decoration: const InputDecoration(
+              labelText: 'Name',
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            keyboardType: TextInputType.number,
+            validator: (String? value) {
+              if (value == null || value.trim().isEmpty) {
+                return 'Write your Product Unit Price!';
+              }
+              return null;
+            },
+            controller: _unitPriceTEController,
+            cursorColor: Colors.blue,
+            decoration: const InputDecoration(
+              labelText: 'Unit Price',
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            keyboardType: TextInputType.number,
+            validator: (String? value) {
+              if (value == null || value.trim().isEmpty) {
+                return 'Write your Product Quantity!';
+              }
+              return null;
+            },
+            controller: _quantityTEController,
+            cursorColor: Colors.blue,
+            decoration: const InputDecoration(
+              labelText: 'Quantity',
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            keyboardType: TextInputType.number,
+            validator: (String? value) {
+              if (value == null || value.trim().isEmpty) {
+                return 'Write your Product Total Price!';
+              }
+              return null;
+            },
+            controller: _totalPriceTEController,
+            cursorColor: Colors.blue,
+            decoration: const InputDecoration(
+              labelText: 'Total Price',
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            keyboardType: TextInputType.number,
+            validator: (String? value) {
+              if (value == null || value.trim().isEmpty) {
+                return 'Enter the Image!';
+              }
+              return null;
+            },
+            controller: _imageTEController,
+            cursorColor: Colors.blue,
+            decoration: const InputDecoration(
+              labelText: 'Image',
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              if(_formerly.currentState!.validate()){
+
+              }
+            },
+            child: const Text(
+              'Add',
+            ),
+          )
+        ],
+      ),
+    );
+  }
+@override
+  void dispose() {
+    _nameTEController.dispose();
+    _unitPriceTEController.dispose();
+    _quantityTEController.dispose();
+    _totalPriceTEController.dispose();
+    _imageTEController.dispose();
+
+    super.dispose();
+  }
+}

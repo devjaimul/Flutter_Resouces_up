@@ -1,0 +1,34 @@
+// ak ak device a ak ak screen size design dekhanor jonno ata use kore ,,jdio agula alada alda korte hy na karon package ase 
+
+Scaffold(
+      body:
+      LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          if (constraints.maxWidth < 600) {
+            return const Center(child: Text('Mobile'));
+          } else if (constraints.maxWidth < 800) {
+            return const Center(child: Text('Tablet'));
+          } else if (constraints.maxWidth < 1200) {
+            return const Center(child: Text('Laptop'));
+          }
+
+          return const Center(child: Text('Desktop'));
+        },
+      )
+
+    );
+
+
+
+
+//with ternary oparetor
+
+
+   LayoutBuilder(builder: (context, constraints) {
+        return Container(
+          color: constraints.maxWidth<600? Colors.red :
+          constraints.maxWidth<900 && constraints.maxWidth>600 ?Colors.teal :
+              Colors.yellow,
+
+        );
+      },),
